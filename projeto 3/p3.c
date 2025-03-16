@@ -3,6 +3,8 @@
 #include<string.h>
 #include<math.h>
 
+//InferiorEsquerdo: Check if there is any movement in the bottom left
+//                  of the image, if there is, print the image number
 void InferiorEsquerdo(char *pasta){
 	int a,b;
 	char pasta2[50];
@@ -73,6 +75,8 @@ void InferiorEsquerdo(char *pasta){
 	
 	
 }
+//InferiorDireito: Check if there is any movement in the bottom right
+//                  of the image, if there is, print the image number
 void InferiorDireito(char *pasta){
 	int a,b;
 	char pasta2[50];
@@ -144,6 +148,8 @@ void InferiorDireito(char *pasta){
 	
 	
 }
+//The SuperiorEsquerdo function checks if there is any movement in the top left
+//                  of the image, if there is, print the image number
 void SuperiorEsquerdo(char *pasta){
 	int a,b;
 	char pasta2[50];
@@ -215,6 +221,8 @@ void SuperiorEsquerdo(char *pasta){
 	
 	
 }
+//The SuperiorDireito function checks if there is any movement in the top right
+//                  of the image, if there is, print the image number
 void SuperiorDireito(char *pasta){
 	int a,b;
 	char pasta2[50];
@@ -287,6 +295,8 @@ void SuperiorDireito(char *pasta){
 	
 	
 }
+//The Inteira function checks if there is any movement in the entire image, if
+//                  there is, print the image number
 void Inteira(char *pasta){
 	int a,b;
 	char pasta2[50];
@@ -359,50 +369,3 @@ void Inteira(char *pasta){
 	
 }
 
-
-int main(){
-	int a;
-	char pasta[50], pasta2[50];
-	ini2:
-	printf("Nome da pasta do video (ex: video1):");
-	
-	scanf("%s", pasta);
-	strcpy(pasta2,pasta);
-	FILE *f1 = fopen(strcat(pasta2,"/001.rgb"),"rb");
-	
-	if(!f1){
-		printf("\n!!erro ao encontrar a pasta!!\n\n");
-		fclose(f1);
-		goto ini2;
-	}
-	fclose(f1);
-	
-	
-	ini:
-	printf("Escolha a regiao a ser escaneada:\n1 - Parte Inferior Esquerda; \n2 - Parte Inferior Direita;\n3 - Parte Superior Esquerda;\n4 - Parte Superior Direita;\n5 - Tela Inteira\n");
-	scanf("%d", &a);
-	
-	printf("\n\n!!Isso pode demorar um pouco, aguarde um momento...!!\n\n");
-	
-	switch(a){
-		case 1:
-			InferiorEsquerdo(pasta);
-			break;
-		case 2:
-			InferiorDireito(pasta);
-			break;
-		case 3:
-			SuperiorEsquerdo(pasta);
-			break;
-		case 4:
-			SuperiorDireito(pasta);
-			break;
-		case 5:
-			Inteira(pasta);
-			break;
-		default:
-			printf("Opçao invalida");
-			goto ini;
-	}
-	
-}
